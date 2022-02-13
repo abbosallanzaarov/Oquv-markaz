@@ -23,6 +23,8 @@ class CreateMentorlarsTable extends Migration
             $table->string('nomer')->nullable();
             $table->string('image')->nullable();
             $table->string('manzil')->nullable();
+       
+
 
         });
     }

@@ -14,8 +14,8 @@ class MentCantroller extends Controller
      */
     public function index()
     {
-        $mentor = Mentorlar::all();
-       return view('ment.index', compact('mentor') );
+        $mentorlar = Mentorlar::all();
+       return view('ment.index', compact('mentorlar') );
     }
 
     /**
@@ -54,7 +54,8 @@ class MentCantroller extends Controller
             'email'=>$request->email,
             'nomer'=>$request->nomer,
             'image'=>$request->$fullfoto,
-            'manzil'=>$request->manzil
+            'manzil'=>$request->manzil,
+     
         ]
          
     );
@@ -90,7 +91,8 @@ class MentCantroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit = Mentorlar::find($id);
+         return view('ment.edit' , compact('edit'));
     }
 
     /**
@@ -102,7 +104,13 @@ class MentCantroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update = Mentorlar::find($id);
+        $getupdate = $update -> update();
+       /// dd($request);
+       if($getupdate){
+           return view('ment.index');
+       }
+       return redirect()->back();
     }
 
     /**
@@ -113,7 +121,9 @@ class MentCantroller extends Controller
      */
     public function destroy($id)
     {
-        //
+       $delete = Mentorlar::find($id);
+       $delete->delete($id);
+       return redirect()->back();
     }
     
 }

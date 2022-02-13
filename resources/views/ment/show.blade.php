@@ -12,6 +12,8 @@
   <h4 style="width: 90%;  "><b>email Manzili:</b>  {{$ment->email}}</h4>
   <h4 style="width: 90%;  "><b>Telefon Raqami:</b>  {{$ment->nomer}}📱</h4>
   <h4 style="width: 90%;  "><b>Manzili:</b>  {{$ment->manzil}}</h4>
+  <h4 style="width: 90%;  "><b>Tugilgan Sana:</b>  {{$ment->data}}</h4>
+
 
 
 
@@ -19,6 +21,11 @@
   </div>
   <div class="rightuz">
   <img src="W:domains/magazin/public/foto/ustoz/$ment->image" style="width:80%;" >
+     <div class="button">
+
+     <a href="{{route('mentor.edit' , $ment->id)}}" class="btn btn-info">Tahrirlash</a>
+    
+     </div>
   </div>
   </div>
   <div class="karta">
@@ -31,6 +38,17 @@
 <style>
     .contentt{
         display: flex;
+    }
+    form{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .button{
+        margin-right: 40px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
     }
     .leftuz{
         width: 50%;

@@ -14,6 +14,8 @@
   <input name="familya" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
 </div>
 
+
+
 <div class="form-floating">
   <textarea name="des" class="form-control" placeholder="qisqacha ijodi" id="floatingTextarea"></textarea>
   <label for="floatingTextarea">Mentor Xaqida Qisqacha</label>
