@@ -53,7 +53,7 @@
                 </a>
             </li>
             <li class="sidebar-item p-2 px-3">
-                    <a href="">
+                    <a href="{{route('pers.index')}}">
                     <i class="bi bi-card-list"></i>
                     <span>O'quvchilar</span>
                 </a>

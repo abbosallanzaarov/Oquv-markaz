@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KursCantroller;
 use App\Http\Controllers\MentCantroller;
 use App\Http\Controllers\nCantroller;
+use App\Http\Controllers\PersonCantroller;
+use App\Http\Controllers\TestCantroller;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +32,8 @@ Route::resource('kurs' , KursCantroller::class)->names('kurs');
 Route::resource('mentor' , MentCantroller::class)->names('mentor');
 
  // Route::get('mentor/show' , [nCantroller::class , 'full'])->name('mentor.show.s');
+ Route::resource('person' , PersonCantroller::class)->names('pers');
+ Route::delete('person/{id}/des' , [TestCantroller::class , 'ReSTdestroy'])->name('dest.del');
 
 
 
