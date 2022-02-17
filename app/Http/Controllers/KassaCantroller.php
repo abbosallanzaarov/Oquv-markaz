@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kurslar;
 use App\Models\person;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class PersonCantroller extends Controller
+class KassaCantroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +14,9 @@ class PersonCantroller extends Controller
      */
     public function index()
     {
-        $kurs = Kurslar::select('id','kurs')->get();
-        $index = DB::table('people')->orderBy('id' ,'ASC')->get();
-        return view('person.index' ,
-        compact(
-                  'index' ,
-                  'kurs'
-                )
+        $person = person::select( 'id' ,'name' , 'fam' , 'kurs')->get();
+        return view('kassa.index' ,
+        compact('person')
     );
     }
 
@@ -44,10 +38,7 @@ class PersonCantroller extends Controller
      */
     public function store(Request $request)
     {
-
-        $create = person::create($request->input());
-        return redirect()->back();
-      ///  dd($request->input());
+   
     }
 
     /**
@@ -90,16 +81,8 @@ class PersonCantroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id , Request $request)
+    public function destroy($id)
     {
-       $id = $request->input('id');
-      $pers =  person::wherein('id',$id)->get();
-
-      foreach($pers as $per){
-          $per->delete();
-      }
-      return redirect()->back();
-    
-}
-
+        //
+    }
 }

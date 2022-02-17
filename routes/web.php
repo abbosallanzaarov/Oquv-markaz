@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\KassaCantroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KursCantroller;
 use App\Http\Controllers\MentCantroller;
@@ -37,9 +39,13 @@ Route::resource('mentor' , MentCantroller::class)->names('mentor');
 
 
 
+// Email
+Route::get('email',[EmailController::class,'index'])->name('admin.email.index');
+Route::post('email/send',[EmailController::class,'send'])->name('admin.email.send');
 
+Route::post('/email/message',[EmailController::class,"message"])->name('admin.email.message');
 
-
+ Route::resource('kassa' , KassaCantroller::class)->names('kassa');
 
 
 

@@ -58,22 +58,23 @@
                     <span>O'quvchilar</span>
                 </a>
             </li>
-            <li class="sidebar-item p-2 px-3">
-                <a href="">
-                    <i class="bi bi-bag-plus"></i>
-                    <span>Orderlar</span>
-                </a>
-            </li>
+            
             <li class="sidebar-item p-2 px-3">
                 <a href="">
                     <i class="bi bi-headset"></i>
-                    <span>Adminstrotorlar</span>
+                    <span>Hodimlar</span>
                 </a>
             </li>
             <li class="sidebar-item p-2 px-3">
-                <a href=" ">
+                <a href="{{route('kassa.index')}}">
                     <i class="bi bi-calculator-fill "></i>
                     <span>Kassirlar</span>
+                </a>
+            </li>
+            <li class="sidebar-item p-2 px-3">
+                <a href="{{ route('admin.email.index') }}">
+                    <i class="bi bi-envelope "></i>
+                    <span>Email sms</span>
                 </a>
             </li>
         </ul>

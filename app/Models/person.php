@@ -11,6 +11,6 @@ class person extends Model
     protected $guarded = [];
     use HasFactory;
     public function kurs(){
-        return BelongsTo::Kurslar();
+        return $this->belongsTo(Kurslar::class , 'kurs' );
     }
 }

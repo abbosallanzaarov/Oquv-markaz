@@ -92,7 +92,7 @@
                <th style="border: 2px solid black; width:120px; height:37px; text-align:center;" >email</th>
                <th style="border: 2px solid black; width:120px; height:37px; text-align:center;" >manzil</th>
                <th style="border: 2px solid black; width:120px; height:37px; text-align:center;" >K.davomiligi</th>
-               <th style="border: 2px solid black; width:120px; height:37px; text-align:center;">delete</th>
+               <th style="border: 2px solid black; width:120px; height:37px; text-align:center; color:red;">delete</th>
               @foreach($index as $in)
              
               
@@ -109,6 +109,10 @@
            </tr>
        </thead>
        <tbody>
+       @forelse($kurs as $kur)
+       @empty
+              -
+       @endforelse
 
            @forelse($index as $item)
              <tr>
@@ -116,7 +120,10 @@
                 </td>
                  <td style="border: 1px solid black; text-align:center; height:38px;">{{$item->name}}</td>
                  <td style="border: 1px solid black; text-align:center; height:38px;">{{$item->fam}}</td>
-                 <td style="border: 1px solid black; text-align:center; height:38px;">{{$item->kurs}}</td>
+                 
+                 <td style="border: 1px solid black; text-align:center; height:38px;">{{$kur->kurs}}</td>
+                
+               
                  <td style="border: 1px solid black; text-align:center; height:38px;">{{$item->nomer}}</td>
                  <td style="border: 1px solid black; text-align:center; height:38px;">{{$item->email}}</td>
                  <td style="border: 1px solid black; text-align:center; height:38px;">{{$item->manzil}}</td>
@@ -124,7 +131,7 @@
                  <td style="border: 1px solid black; text-align:center; height:38px;"> 
                  <form action="{{route('pers.destroy' , $item->id )}}" method="POST"> 
               @csrf @method('delete')
-                 <input  name="id[]" class="form-check-input" type="checkbox" value="{{$item->id}}" >
+                 <input id="input"  name="id[]" class="form-check-input" type="checkbox" value="{{$item->id}}" >
                
                 </td>
              </tr>
@@ -133,15 +140,15 @@
           <td style="text-align: center;">Hech narsa yo'q</td>
       </tr>
              @endforelse
-             <button>DELETE</button>    
+             <button class="btn btn-danger" style="display: none;" id="btn">DELETE</button>    
              </form>
        </tbody>
    </table>
    <script>
-  let check = document.getElementById('check')
-    let deleteBtn = document.getElementById('btndelete')
-      deleteBtn.addEventListener('click' , function(){
-          check.style.display = 'block'
+  let check = document.getElementById('input')
+    let deleteBtn = document.getElementById('btn')
+      check.addEventListener('click' , function(){
+          deleteBtn.style.display = 'block'
     
       })
     
@@ -158,7 +165,9 @@
     table{
         border-collapse: collapse;
     }
-
+   #input{
+       box-shadow: 0 0 10px 0 #222;
+   }
 
     .input{
        
@@ -168,5 +177,6 @@
         width: 100%;
         display: flex;
         flex-wrap: wrap;
+        
     }
 </style>
